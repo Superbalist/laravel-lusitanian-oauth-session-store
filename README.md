@@ -17,13 +17,15 @@ composer require superbalist/laravel-lusitanian-oauth-session-store
 ## Usage
 
 ```php
+use App;
 use OAuth\ServiceFactory;
 use Superbalist\LusitanianOAuth\LaravelTokenSessionStore;
 
 // this example demonstrates creating a github service
 
 $factory = new ServiceFactory();
-$storage = new LaravelTokenSessionStore();
+$store = App::make('session.store');
+$storage = new LaravelTokenSessionStore($store);
 
 $credentials = [
     '[[github key]]',
