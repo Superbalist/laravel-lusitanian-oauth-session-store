@@ -1,0 +1,26 @@
+{
+	"name": "superbalist/laravel-lusitanian-oauth-session-store",
+	"description": "A Laravel session storage interface for the lusitanian/oauth library",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Superbalist.com a division of Takealot Online (Pty) Ltd",
+			"email": "info@superbalist.com"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0",
+		"lusitanian/oauth": "0.8.*",
+		"illuminate/session": ">=4.0.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Superbalist\\LusitanianOAuth\\": "src/"
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0-dev"
+		}
+	}
+}
