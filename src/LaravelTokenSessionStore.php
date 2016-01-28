@@ -8,7 +8,9 @@ use OAuth\Common\Token\TokenInterface;
 
 class LaravelTokenSessionStore implements TokenStorageInterface
 {
-
+    /**
+     * @var \Illuminate\Session\Store
+     */
     protected $session;
 
     /**
