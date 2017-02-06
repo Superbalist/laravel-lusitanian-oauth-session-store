@@ -1,4 +1,6 @@
-<?php namespace Superbalist\LusitanianOAuth;
+<?php
+
+namespace Superbalist\LusitanianOAuth;
 
 use Illuminate\Session\Store;
 use OAuth\Common\Storage\Exception\AuthorizationStateNotFoundException;
@@ -37,19 +39,21 @@ class LaravelTokenSessionStore implements TokenStorageInterface
         $this->sessionVariableName = $sessionVariableName;
         $this->stateVariableName = $stateVariableName;
 
-        if (! $this->session->has($this->sessionVariableName)) {
-            $this->session->put($this->sessionVariableName, array());
+        if (!$this->session->has($this->sessionVariableName)) {
+            $this->session->put($this->sessionVariableName, []);
         }
 
-        if (! $this->session->has($this->stateVariableName)) {
-            $this->session->put($this->stateVariableName, array());
+        if (!$this->session->has($this->stateVariableName)) {
+            $this->session->put($this->stateVariableName, []);
         }
     }
 
     /**
      * @param string $service
-     * @return TokenInterface
+     *
      * @throws \OAuth\Common\Storage\Exception\TokenNotFoundException
+     *
+     * @return TokenInterface
      */
     public function retrieveAccessToken($service)
     {
@@ -63,11 +67,12 @@ class LaravelTokenSessionStore implements TokenStorageInterface
     /**
      * @param string $service
      * @param TokenInterface $token
+     *
      * @return TokenStorageInterface
      */
     public function storeAccessToken($service, TokenInterface $token)
     {
-        $accessTokens = $this->session->get($this->sessionVariableName, array());
+        $accessTokens = $this->session->get($this->sessionVariableName, []);
         $accessTokens[$service] = $token;
 
         $this->session->put($this->sessionVariableName, $accessTokens);
@@ -78,6 +83,7 @@ class LaravelTokenSessionStore implements TokenStorageInterface
 
     /**
      * @param string $service
+     *
      * @return bool
      */
     public function hasAccessToken($service)
@@ -87,6 +93,7 @@ class LaravelTokenSessionStore implements TokenStorageInterface
 
     /**
      * @param string $service
+     *
      * @return TokenStorageInterface
      */
     public function clearToken($service)
@@ -111,11 +118,12 @@ class LaravelTokenSessionStore implements TokenStorageInterface
     /**
      * @param string $service
      * @param string $state
+     *
      * @return TokenStorageInterface
      */
     public function storeAuthorizationState($service, $state)
     {
-        $states = $this->session->get($this->stateVariableName, array());
+        $states = $this->session->get($this->stateVariableName, []);
         $states[$service] = $state;
 
         $this->session->put($this->stateVariableName, $states);
@@ -126,6 +134,7 @@ class LaravelTokenSessionStore implements TokenStorageInterface
 
     /**
      * @param string $service
+     *
      * @return bool
      */
     public function hasAuthorizationState($service)
@@ -135,8 +144,10 @@ class LaravelTokenSessionStore implements TokenStorageInterface
 
     /**
      * @param string $service
-     * @return string
+     *
      * @throws \OAuth\Common\Storage\Exception\AuthorizationStateNotFoundException
+     *
+     * @return string
      */
     public function retrieveAuthorizationState($service)
     {
@@ -149,6 +160,7 @@ class LaravelTokenSessionStore implements TokenStorageInterface
 
     /**
      * @param string $service
+     *
      * @return TokenStorageInterface
      */
     public function clearAuthorizationState($service)
