@@ -3,6 +3,7 @@
 A Laravel session storage interface for the lusitanian/oauth library
 
 [![Author](http://img.shields.io/badge/author-@superbalist-blue.svg?style=flat-square)](https://twitter.com/superbalist)
+[![StyleCI](https://styleci.io/repos/50511109/shield?branch=master)](https://styleci.io/repos/50511109)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Packagist Version](https://img.shields.io/packagist/v/superbalist/laravel-lusitanian-oauth-session-store.svg?style=flat-square)](https://packagist.org/packages/superbalist/laravel-lusitanian-oauth-session-store)
 [![Total Downloads](https://img.shields.io/packagist/dt/superbalist/laravel-lusitanian-oauth-session-store.svg?style=flat-square)](https://packagist.org/packages/superbalist/laravel-lusitanian-oauth-session-store)
